@@ -522,7 +522,9 @@ class FlippedSignature:
     frozen = Signature.frozen
     freeze = Signature.freeze
     is_compliant = Signature.is_compliant
-    create = Signature.create
+    
+    def create(self, *, path=()):
+        return flipped(self.__unflipped.create(path=path))    
 
     # FIXME: document this logic
     def __getattr__(self, name):
